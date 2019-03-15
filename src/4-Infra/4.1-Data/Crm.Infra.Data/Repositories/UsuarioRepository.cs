@@ -1,5 +1,5 @@
 ﻿using Crm.Domain.Entities;
-using Crm.Domain.Interfaces;
+using Crm.Domain.Interfaces.Repositories;
 
 namespace Crm.Infra.Data.Repositories
 {

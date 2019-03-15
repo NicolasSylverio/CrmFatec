@@ -1,5 +1,5 @@
 ﻿using Crm.Domain.Entities;
-using Crm.Domain.Interfaces;
+using Crm.Domain.Interfaces.Repositories;
 using Crm.Domain.Interfaces.Services;
 
 namespace Crm.Domain.Services
