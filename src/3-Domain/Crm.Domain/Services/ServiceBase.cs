@@ -2,6 +2,7 @@
 using Crm.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
+using Crm.Domain.Interfaces.Repositories;
 
 namespace Crm.Domain.Services
 {

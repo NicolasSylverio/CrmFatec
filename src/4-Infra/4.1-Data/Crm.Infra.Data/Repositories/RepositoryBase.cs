@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using Crm.Domain.Interfaces.Repositories;
 
 namespace Crm.Infra.Data.Repositories
 {

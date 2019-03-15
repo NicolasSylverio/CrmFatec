@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Crm.Domain.Interfaces
+namespace Crm.Domain.Interfaces.Repositories
 {
     public interface IRepositoryBase<TEntity> where TEntity : class
     {
