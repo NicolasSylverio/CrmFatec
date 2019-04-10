@@ -1,7 +1,6 @@
-﻿using Crm.Domain.Interfaces;
+﻿using Crm.Domain.Interfaces.Repositories;
 using Crm.Domain.Interfaces.Services;
 using System.Collections.Generic;
-using Crm.Domain.Interfaces.Repositories;
 
 namespace Crm.Domain.Services
 {

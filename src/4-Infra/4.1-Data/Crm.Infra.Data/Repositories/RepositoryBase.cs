@@ -43,5 +43,10 @@ namespace Crm.Infra.Data.Repositories
         {
             Db.Entry(obj).State = EntityState.Modified;
         }
+
+        protected virtual void Dispose(bool disposing)
+        {
+
+        }
     }
 }
