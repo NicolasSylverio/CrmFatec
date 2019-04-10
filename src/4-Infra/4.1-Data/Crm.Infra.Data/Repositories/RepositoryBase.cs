@@ -1,13 +1,13 @@
-﻿using Crm.Infra.Data.Contexto;
+﻿using Crm.Domain.Interfaces.Repositories;
+using Crm.Infra.Data.Contexto;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Crm.Domain.Interfaces.Repositories;
 
 namespace Crm.Infra.Data.Repositories
 {
-    public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
+    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
     {
         protected CrmContext Db = new CrmContext();
 
@@ -19,7 +19,8 @@ namespace Crm.Infra.Data.Repositories
 
         public void Dispose()
         {
-            Dispose();
+            Db.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public IEnumerable<TEntity> GetAll()

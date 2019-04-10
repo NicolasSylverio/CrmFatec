@@ -1,12 +1,11 @@
 ﻿using Crm.Domain.Interfaces;
 using Crm.Domain.Interfaces.Services;
-using System;
 using System.Collections.Generic;
 using Crm.Domain.Interfaces.Repositories;
 
 namespace Crm.Domain.Services
 {
-    public class ServiceBase<TEntity> : IDisposable, IServiceBase<TEntity> where TEntity : class
+    public class ServiceBase<TEntity> : IServiceBase<TEntity> where TEntity : class
     {
         private readonly IRepositoryBase<TEntity> _repository;
 
