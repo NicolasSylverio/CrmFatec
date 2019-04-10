@@ -19,7 +19,7 @@ namespace Crm.Infra.Data.Repositories
 
         public void Dispose()
         {
-            Dispose();
+
         }
 
         public IEnumerable<TEntity> GetAll()
