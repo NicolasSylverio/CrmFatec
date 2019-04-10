@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Crm.Infra.Data.Repositories
 {
-    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
+    public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
     {
         protected CrmContext Db = new CrmContext();
 
@@ -42,11 +42,6 @@ namespace Crm.Infra.Data.Repositories
         public void Update(TEntity obj)
         {
             Db.Entry(obj).State = EntityState.Modified;
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-
         }
     }
 }
