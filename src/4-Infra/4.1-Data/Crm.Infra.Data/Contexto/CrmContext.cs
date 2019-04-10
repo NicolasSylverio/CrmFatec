@@ -33,9 +33,6 @@ namespace Crm.Infra.Data.Contexto
                 .Configure(x => x.HasMaxLength(100));
 
             base.OnModelCreating(modelBuilder);
-
-            // Para adicionar nova tabela por migrations usar classes de configurações para manter os campos corretamente modelados.
-            //modelBuilder.Configurations.Add(new UsuarioConfiguration());
         }
 
         public override int SaveChanges()
