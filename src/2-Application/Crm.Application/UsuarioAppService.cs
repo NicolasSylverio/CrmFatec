@@ -1,5 +1,5 @@
 ﻿using Crm.Application.Interface;
-using Crm.Domain.Entities;
+using Crm.Domain.Models;
 
 namespace Crm.Application
 {

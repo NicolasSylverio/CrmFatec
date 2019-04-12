@@ -1,4 +1,4 @@
-﻿using Crm.Domain.Entities;
+﻿using Crm.Domain.Models;
 
 namespace Crm.Domain.Interfaces.Services
 {

@@ -18,4 +18,9 @@
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\4-Infra\4.1-Data\Crm.Infra.Data\Crm.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>
