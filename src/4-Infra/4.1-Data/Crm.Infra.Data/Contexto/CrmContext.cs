@@ -1,36 +1,27 @@
-﻿using Crm.Domain.Entities;
+﻿using Crm.Domain.Models;
+using Crm.Infra.Data.Mappings;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using System;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 
 namespace Crm.Infra.Data.Contexto
 {
     public class CrmContext : DbContext
     {
-        public CrmContext()
-            : base("CrmConnection")
-        {
+        private readonly IHostingEnvironment _env;
 
+        public CrmContext(DbContextOptions options)
+             : base(options)
+        {
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-
-            modelBuilder.Properties()
-                .Where(x => x.Name == x.ReflectedType.Name + "Id")
-                .Configure(x => x.IsKey());
-
-            modelBuilder.Properties<string>()
-                .Configure(x => x.HasColumnType("varchar"));
-
-            modelBuilder.Properties<string>()
-                .Configure(x => x.HasMaxLength(100));
+            modelBuilder.ApplyConfiguration(new UsuarioMap());
 
             base.OnModelCreating(modelBuilder);
         }
