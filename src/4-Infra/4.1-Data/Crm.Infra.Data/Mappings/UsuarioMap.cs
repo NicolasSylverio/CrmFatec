@@ -1,5 +1,4 @@
-﻿using Crm.Domain.Enum;
-using Crm.Domain.Models;
+﻿using Crm.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -9,38 +8,66 @@ namespace Crm.Infra.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
+            builder.ToTable("Usuario");
+
+            builder.HasKey(x => x.Id);
+
             builder.Property(x => x.Nome)
-                .HasMaxLength(100)
+                .HasColumnName("Nome")
+                .HasColumnType("varchar(100)")
                 .IsRequired();
 
             builder.Property(x => x.Email)
-                .HasMaxLength(100)
+                .HasColumnName("Email")
+                .HasColumnType("varchar(100)")
+                .IsRequired();
+
+            builder.Property(x => x.Senha)
+                .HasColumnName("Senha")
+                .HasColumnType("varchar(20)")
+                .IsRequired();
+
+            builder.Property(x => x.Login)
+                .HasColumnName("Login")
+                .HasColumnType("varchar(20)")
                 .IsRequired();
 
             builder.Property(x => x.Cpf)
-                .HasMaxLength(11)
+                .HasColumnName("Cpf")
+                .HasColumnType("varchar(11)")
                 .IsRequired();
 
             builder.Property(x => x.Celular)
-                .HasMaxLength(15)
+                .HasColumnName("Celular")
+                .HasColumnType("varchar(15)")
                 .IsRequired();
 
             builder.Property(x => x.DataNascimento)
+                .HasColumnName("DataNascimento")
+                .HasColumnType("Date")
                 .IsRequired();
 
             builder.Property(x => x.TipoUsuario)
-                .HasConversion<TipoUsuario>()
+                .HasColumnName("TipoUsuario")
+                .HasColumnType("int")
+                .HasConversion<int>()
                 .IsRequired();
 
             builder.Property(x => x.Sexo)
-                .HasConversion<TipoSexo>()
+                .HasColumnName("Sexo")
+                .HasColumnType("int")
+                .HasConversion<int>()
                 .IsRequired();
 
-
-            builder.Property(x => x.IsDeleted)                
+            builder.Property(x => x.IsDeleted)
+                .HasColumnName("IsDeleted")
+                .HasColumnType("bit")
                 .IsRequired();
 
             builder.Property(x => x.DataCadastro)
+                .HasColumnName("DataCadastro")
+                .HasColumnType("datetime")
+                .HasDefaultValueSql("GetDate()")
                 .ValueGeneratedOnAdd()
                 .IsRequired();
         }

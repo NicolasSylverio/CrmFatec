@@ -1,15 +1,10 @@
-﻿using System;
-using Crm.Domain.Enum;
+﻿using Crm.Domain.Enum;
+using System;
 
 namespace Crm.Domain.Models
 {
     public class Usuario
     {
-        public Usuario()
-        {
-            
-        }
-
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Login { get; set; }
@@ -21,7 +16,7 @@ namespace Crm.Domain.Models
         public TipoUsuario TipoUsuario { get; set; }
         public TipoSexo Sexo { get; set; }
 
-        public bool IsDeleted { get; }
-        public DateTime DataCadastro { get; }    
+        public bool IsDeleted { get; set; }
+        public DateTime DataCadastro { get; set; }
     }
 }

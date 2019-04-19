@@ -12,7 +12,7 @@ namespace Crm.Infra.Data.Repositories
 
         public Usuario GetByLogin(string login)
         {
-
+            return new Usuario();
         }
     }
 }

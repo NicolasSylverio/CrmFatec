@@ -12,9 +12,9 @@ namespace Crm.Infra.Data.Contexto
     {
         private readonly IHostingEnvironment _env;
 
-        public CrmContext(IHostingEnvironment env)
+        public CrmContext(DbContextOptions options)
+             : base(options)
         {
-            _env = env;
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -43,17 +43,5 @@ namespace Crm.Infra.Data.Contexto
 
             return base.SaveChanges();
         }
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    // get the configuration from the app settings
-        //    var config = new ConfigurationBuilder()
-        //        .SetBasePath(_env.ContentRootPath)
-        //        .AddJsonFile("appsettings.json")
-        //        .Build();
-
-        //    // define the database to use
-        //    optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
-        //}
     }
 }
