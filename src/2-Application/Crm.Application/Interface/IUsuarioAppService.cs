@@ -1,8 +1,13 @@
-﻿using Crm.Domain.Models;
+﻿using Crm.Application.ViewModels;
+using Crm.Domain.Models;
+using System.Collections.Generic;
 
 namespace Crm.Application.Interface
 {
-    public interface IUsuarioAppService : IAppServiceBase<Usuario>
+    public interface IUsuarioAppService : IAppServiceBase<Usuario> 
     {
+        void Cadastrar(UsuarioViewModel usuarioViewModel);
+
+        IEnumerable<UsuarioViewModel> GetAllUsuarioViewModel();
     }
 }

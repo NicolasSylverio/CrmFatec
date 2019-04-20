@@ -1,6 +1,10 @@
-﻿using Crm.Domain.Interfaces.Repositories;
+﻿using AutoMapper;
+using Crm.Application;
+using Crm.Application.Interface;
+using Crm.Domain.Interfaces.Repositories;
 using Crm.Infra.Data.Contexto;
 using Crm.Infra.Data.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Crm.Infra.IoC
@@ -9,9 +13,15 @@ namespace Crm.Infra.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            // Application
+            services.AddAutoMapper();
+            services.AddScoped<IUsuarioAppService, UsuarioAppService>();
 
             // Infra - Data
-            services.AddScoped<CrmContext>();
+            services.AddDbContext<CrmContext>();
+            services.AddEntityFrameworkSqlServer();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         }
     }

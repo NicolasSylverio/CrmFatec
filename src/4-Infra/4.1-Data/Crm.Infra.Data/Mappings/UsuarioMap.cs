@@ -14,7 +14,12 @@ namespace Crm.Infra.Data.Mappings
 
             builder.Property(x => x.Nome)
                 .HasColumnName("Nome")
-                .HasColumnType("varchar(100)")
+                .HasColumnType("varchar(50)")
+                .IsRequired();
+
+            builder.Property(x => x.Sobrenome)
+                .HasColumnName("Sobrenome")
+                .HasColumnType("varchar(50)")
                 .IsRequired();
 
             builder.Property(x => x.Email)

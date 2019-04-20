@@ -1,5 +1,82 @@
-﻿<div class="container">
+﻿@model IEnumerable<Crm.Application.ViewModels.UsuarioViewModel>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="container">
+
     <div>
-        <h3>Cadastro de Usuario</h3>
+        <h2>@ViewData["Title"]</h2>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <div class="pull-left">
+                    <a asp-controller="Usuario" asp-action="CadastroUsuario" class="btn teal lighten-2">Cadastro Usuario</a>
+                    <span title="Cadastrar" class=""></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sobrenome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataNascimento)
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sobrenome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataNascimento)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn yellow">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn blue">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn red">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+
+                        <button type="button" class="btn purple viewbutton" title="History" data-id="@item.Id" data-toggle="modal" data-target="#customerHistory">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
