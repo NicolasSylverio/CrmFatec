@@ -22,7 +22,7 @@
     </div>
     <br />
 
-    <table class="table">
+    <table class="table responsive-table highlight">
         <thead>
             <tr>
                 <th>
@@ -59,24 +59,40 @@
                         @Html.DisplayFor(modelItem => item.DataNascimento)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn yellow">
-                            <span class="glyphicon glyphicon-pencil"></span>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Editar" class="btn yellow waves-effect">
+                            <i class="material-icons">edit</i>
                         </a>
 
-                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn blue">
-                            <span class="glyphicon glyphicon-search"></span>
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes" class="btn blue waves-effect">
+                            <i class="material-icons">details</i>
                         </a>
 
-                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn red">
-                            <span class="glyphicon glyphicon-trash"></span>
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Deletar" class="btn red waves-effect">
+                            <i class="material-icons">delete</i>
                         </a>
 
-                        <button type="button" class="btn purple viewbutton" title="History" data-id="@item.Id" data-toggle="modal" data-target="#customerHistory">
-                            <span class="glyphicon glyphicon-time"></span>
+                        <button type="button" class="btn purple waves-effect" title="Historico" data-id="@item.Id" data-toggle="modal">
+                            <i class="material-icons">history</i>
                         </button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+
+    <br />
+
+    <div class="row">
+        <div class="col s12 m12 l12 xl12 right-align">
+            <ul class="pagination">
+                <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li class="waves-effect"><a href="#">2</a></li>
+                <li class="waves-effect"><a href="#">3</a></li>
+                <li class="waves-effect"><a href="#">4</a></li>
+                <li class="waves-effect"><a href="#">5</a></li>
+                <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
+    </div>
 </div>

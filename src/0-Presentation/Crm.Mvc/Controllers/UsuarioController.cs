@@ -56,13 +56,11 @@ namespace Crm.Mvc.Controllers
 
                 _usuarioAppService.Cadastrar(usuarioViewModel);
 
-                ViewBag.Sucesso = "Usuario Cadastrado";
-
-                return View(usuarioViewModel);
+                return View(new UsuarioViewModel());
             }
             catch (Exception ex)
             {
-                return View(new UsuarioViewModel());
+                return View(usuarioViewModel);
             }
         }
     }

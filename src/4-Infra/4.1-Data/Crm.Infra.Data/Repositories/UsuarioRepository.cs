@@ -21,6 +21,7 @@ namespace Crm.Infra.Data.Repositories
         public void Add(Usuario obj)
         {
             Db.Set<Usuario>().Add(obj);
+            Db.SaveChanges();
         }
 
         public void Dispose()
@@ -31,27 +32,33 @@ namespace Crm.Infra.Data.Repositories
 
         public IEnumerable<Usuario> GetAll()
         {
-            return Db.Usuarios.ToList();
+            return Db.Usuarios
+                .ToList();
         }
 
         public Usuario GetById(int id)
         {
-            return Db.Set<Usuario>().Find(id);
+            return Db.Set<Usuario>()
+                .Find(id);
         }
 
         public Usuario GetByLogin(string login)
         {
-            return new Usuario();
+            return Db.Set<Usuario>()
+                .Where(x => x.Login == login)
+                .FirstOrDefault();
         }
 
         public void Remove(Usuario obj)
         {
-            throw new System.NotImplementedException();
+            Db.Remove(obj);
+            Db.SaveChanges();
         }
 
         public void Update(Usuario obj)
         {
-            throw new System.NotImplementedException();
+            Db.Update(obj);
+            Db.SaveChanges();
         }
     }
 }
