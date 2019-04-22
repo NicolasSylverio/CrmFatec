@@ -10,12 +10,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <partial name="_header" />
+    @*<partial name="_header" />*@
 
     <main role="main">
 
         <div class="row">
             <div>
+                <partial name="_menu" />
                 <partial name="_CookieConsentPartial" />
                 @RenderBody()
             </div>

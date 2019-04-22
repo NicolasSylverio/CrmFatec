@@ -54,21 +54,35 @@
                     <span asp-validation-for="Senha" class="helper-text" data-error="wrong"></span>
                 </div>
 
-                <div class="input-field col s12 m6 l6 xl6">
+                <div class="input-field col s12 m4 l4 xl4">
                     <i class="material-icons prefix">phone</i>
                     <input asp-for="Celular" id="Celular" type="tel" class="validate" data-length="9" />
                     <label asp-for="Celular"></label>
                     <span asp-validation-for="Celular" class="helper-text" data-error="wrong"></span>
                 </div>
 
-                <div class="input-field col s12 m6 l6 xl6">
+                <div class="input-field col s12 m4 l4 xl4">
+                    <select asp-for="Sexo">
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="0">Feminino</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Outros</option>
+                    </select>
+                    <label asp-for="Sexo"></label>
+                    <br />
+                    <br />
+                </div>
+
+                <div class="input-field col s12 m4 l4 xl4">
                     <select>
                         <option value="" disabled selected>Selecione uma opção</option>
-                        <option value="1">Feminino</option>
-                        <option value="2">Masculino</option>
-                        <option value="3">Outros</option>
+                        <option value="0">Supervisor</option>
+                        <option value="1">Funcionario</option>
+                        <option value="2">Aluno</option>
+                        <option value="3">Visitante</option>
                     </select>
-                    <label>Sexo</label>
+                    <label asp-for="TipoUsuario"></label>
+                    <span asp-validation-for="TipoUsuario" class="helper-text" data-error="wrong"></span>
                 </div>
 
                 <div class="input-field col s12 m12 l12 xl12">
@@ -95,11 +109,14 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             const elems = document.querySelectorAll('select');
+            const options = {};
+
             M.FormSelect.init(elems, options);
         });
 
         document.addEventListener('DOMContentLoaded', function () {
             const textNeedCount = document.querySelectorAll('#Nome, #Sobrenome, #DataNascimento, #Cpf, #Login, #Celular, #Senha, #Email');
+
             M.CharacterCounter.init(textNeedCount);
         });
 
