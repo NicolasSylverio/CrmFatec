@@ -1,0 +1,45 @@
+﻿<nav>
+    <div class="nav-wrapper">
+        <div class="container">
+            <a class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">Mvc</a>
+            <a href="#" class="sidenav-trigger" data-target="slide_out"><i class="material-icons">menu</i></a>
+            <ul class="hide-on-med-and-down right">
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Usuario" asp-action="Index">Usuarios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<ul class="sidenav" id="slide_out">
+    <li>
+        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li>
+        <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </li>
+    <li>
+        <a asp-area="" asp-controller="Usuario" asp-action="Index">Usuarios</a>
+    </li>
+</ul>
+
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const options = {
+
+        }
+
+        const elems = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(elems, options);
+    });
+
+</script>

@@ -2,19 +2,18 @@
 using Crm.Infra.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
 using System;
+using System.IO;
 using System.Linq;
 
 namespace Crm.Infra.Data.Contexto
 {
     public class CrmContext : DbContext
     {
-        private readonly IHostingEnvironment _env;
-
         public CrmContext(DbContextOptions options)
              : base(options)
         {
+
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -42,6 +41,18 @@ namespace Crm.Infra.Data.Contexto
             }
 
             return base.SaveChanges();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var configuration = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json")
+               .Build();
+
+            var connectionString = configuration.GetConnectionString("CrmConnection");
+
+            optionsBuilder.UseSqlServer(connectionString);
         }
     }
 }
