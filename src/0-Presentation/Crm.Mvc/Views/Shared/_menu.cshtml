@@ -2,44 +2,81 @@
     <div class="nav-wrapper">
         <div class="container">
             <a class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">Mvc</a>
-            <a href="#" class="sidenav-trigger" data-target="slide_out"><i class="material-icons">menu</i></a>
+            <a href="#" class="sidenav-trigger" data-target="slide_menu"><i class="material-icons left">menu</i></a>
+            <a href="#" class="sidenav-trigger right" data-target="slide_login"><i class="material-icons right">search</i></a>
             <ul class="hide-on-med-and-down right">
                 <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <a href="#" class="sidenav-trigger show-on-large" data-target="slide_menu"><i class="material-icons">menu</i></a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                </li>
-                <li>
-                    <a asp-area="" asp-controller="Usuario" asp-action="Index">Usuarios</a>
+                    <a href="#" class="sidenav-trigger show-on-large" data-target="slide_login"><i class="material-icons left">search</i>Nome Usuario</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<ul class="sidenav" id="slide_out">
+<ul class="sidenav" id="slide_menu">
     <li>
         <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
     </li>
+    <li><div class="divider"></div></li>
     <li>
         <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </li>
+    <li><div class="divider"></div></li>
     <li>
-        <a asp-area="" asp-controller="Usuario" asp-action="Index">Usuarios</a>
+        <a asp-area="" asp-controller="Usuario" asp-action="Index">Lista Usuarios</a>
     </li>
+    <li>
+        <a asp-area="" asp-controller="Usuario" asp-action="CadastroUsuario">Cadastro Usuarios</a>
+    </li>
+    <li><div class="divider"></div></li>
+    <li>
+        <a href="#">Third</a>
+    </li>
+    <li><div class="divider"></div></li>
+</ul>
+
+<ul class="sidenav" id="slide_login">
+    <li>
+        <div class="user-view">
+            <div class="background">
+                <img src="~/imagens/fundoPadrao.png" alt="Imagem Fundo">
+            </div>
+            <a href="#">
+                <img class="circle" src="~/imagens/avatarPadrao.png" alt="Avatar">
+            </a>
+            <a href="#">
+                <span class="black-text name">Nicolas Sylverio Pereira</span>
+            </a>
+            <a href="#">
+                <span class="black-text email">nicolas@hotmail.com</span>
+            </a>
+        </div>
+    </li>
+    <li>
+        <a><i class="material-icons left">notifications</i>Notificações</a>
+    </li>
+    <li><div class="divider"></div></li>
+    <li>
+        <a><i class="material-icons">message</i> Mensagens</a>
+    </li>
+    <li><div class="divider"></div></li>
 </ul>
 
 <script>
 
 
     document.addEventListener('DOMContentLoaded', function () {
-        const options = {
+        const menuOptions = {};
+        const loginOptions = { edge: 'right' };
 
-        }
+        const menu = document.querySelectorAll('#slide_menu');
+        M.Sidenav.init(menu, menuOptions);
 
-        const elems = document.querySelectorAll('.sidenav');
-        M.Sidenav.init(elems, options);
+        const login = document.querySelectorAll('#slide_login');
+        M.Sidenav.init(login, loginOptions);
     });
 
 </script>
