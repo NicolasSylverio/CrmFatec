@@ -3,13 +3,13 @@
         <div class="container">
             <a class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">Mvc</a>
             <a href="#" class="sidenav-trigger" data-target="slide_menu"><i class="material-icons left">menu</i></a>
-            <a href="#" class="sidenav-trigger right" data-target="slide_login"><i class="material-icons right">search</i></a>
+            <a href="#" class="sidenav-trigger right" data-target="slide_login"><i class="material-icons right">person</i></a>
             <ul class="hide-on-med-and-down right">
                 <li>
                     <a href="#" class="sidenav-trigger show-on-large" data-target="slide_menu"><i class="material-icons">menu</i></a>
                 </li>
                 <li>
-                    <a href="#" class="sidenav-trigger show-on-large" data-target="slide_login"><i class="material-icons left">search</i>Nome Usuario</a>
+                    <a href="#" class="sidenav-trigger show-on-large" data-target="slide_login"><i class="material-icons left">person</i>Nome Usuario</a>
                 </li>
             </ul>
         </div>
@@ -33,7 +33,7 @@
     </li>
     <li><div class="divider"></div></li>
     <li>
-        <a href="#">Third</a>
+        <a asp-area="" asp-controller="Login" asp-action="Index">Login</a>
     </li>
     <li><div class="divider"></div></li>
 </ul>
