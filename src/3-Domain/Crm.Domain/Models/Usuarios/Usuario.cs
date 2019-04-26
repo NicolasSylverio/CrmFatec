@@ -1,7 +1,7 @@
-﻿using Crm.Domain.Enum;
-using System;
+﻿using System;
+using Crm.Domain.Enum;
 
-namespace Crm.Domain.Models
+namespace Crm.Domain.Models.Usuarios
 {
     public class Usuario
     {

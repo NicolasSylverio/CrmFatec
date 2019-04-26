@@ -1,4 +1,4 @@
-﻿using Crm.Domain.Models;
+﻿using Crm.Domain.Models.Usuarios;
 using Crm.Infra.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
