@@ -1,7 +1,6 @@
 ﻿using Crm.Domain.Interfaces.Repositories;
-using Crm.Domain.Models;
+using Crm.Domain.Models.Usuarios;
 using Crm.Infra.Data.Contexto;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,6 @@ namespace Crm.Infra.Data.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
         protected readonly CrmContext Db;
-        protected readonly DbSet<Usuario> DbSet;
 
         public UsuarioRepository(CrmContext context)
         {
@@ -44,9 +42,9 @@ namespace Crm.Infra.Data.Repositories
 
         public Usuario GetByLogin(string login)
         {
-            return Db.Set<Usuario>()
-                .Where(x => x.Login == login)
-                .FirstOrDefault();
+            return Db
+                .Set<Usuario>()
+                .FirstOrDefault(x => x.Login == login);
         }
 
         public void Remove(Usuario obj)

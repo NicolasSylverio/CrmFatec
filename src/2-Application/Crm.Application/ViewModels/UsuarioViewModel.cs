@@ -12,7 +12,6 @@ namespace Crm.Application.ViewModels
 
         [Required(ErrorMessage = "O Campo Nome é Obrigatorio")]
         [RegularExpression(@"^[a-zA-Z''-'\s]{1,50}$", ErrorMessage = "Números e caracteres especiais não são permitidos.")]
-        [StringLength(maximumLength: 50, MinimumLength = 3, ErrorMessage = "Nome deve ter no maximo 50 caracteres")]
         [MinLength(3, ErrorMessage = "O campo Nome deve ter no minimo 3 caracteres")]
         [MaxLength(50, ErrorMessage = "O campo Nome deve ter no maximo 50 caracteres")]
         [DisplayName("Nome")]
@@ -51,7 +50,6 @@ namespace Crm.Application.ViewModels
         public string Cpf { get; set; }
 
         [Required(ErrorMessage = "O Campo Celular é Obrigatorio")]
-        [StringLength(maximumLength: 15, MinimumLength = 8, ErrorMessage = "Celular deve ter no maximo 15 caracteres")]
         [MaxLength(15, ErrorMessage = "O campo Celular deve ter no maximo 15 caracteres")]
         [MinLength(8, ErrorMessage = "O campo Celular deve ter pelo menos 8 caracteres")]
         [DisplayName("Celular")]

@@ -1,8 +1,6 @@
-﻿using Crm.Domain.Models;
-
-namespace Crm.Domain.Interfaces.Services
+﻿namespace Crm.Domain.Interfaces.Services
 {
-    public interface IUsuarioService : IServiceBase<Usuario>
+    public interface IUsuarioService
     {
     }
 }

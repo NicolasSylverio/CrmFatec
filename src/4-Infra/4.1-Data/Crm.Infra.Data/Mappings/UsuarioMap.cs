@@ -1,4 +1,5 @@
 ﻿using Crm.Domain.Models;
+using Crm.Domain.Models.Usuarios;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -29,7 +30,7 @@ namespace Crm.Infra.Data.Mappings
 
             builder.Property(x => x.Senha)
                 .HasColumnName("Senha")
-                .HasColumnType("varchar(20)")
+                .HasColumnType("varchar(200)")
                 .IsRequired();
 
             builder.Property(x => x.Login)
