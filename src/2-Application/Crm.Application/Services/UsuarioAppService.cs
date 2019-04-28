@@ -2,34 +2,38 @@
 using Crm.Application.Interface;
 using Crm.Application.ViewModels;
 using Crm.Domain.Interfaces.Repositories;
-using Crm.Domain.Models;
-using System;
+using Crm.Domain.Interfaces.Services;
+using Crm.Domain.Models.Usuarios;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Crm.Application
+namespace Crm.Application.Services
 {
     public class UsuarioAppService : IUsuarioAppService
     {
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly ICriptografiaService _criptografiaService;
         private readonly IMapper _mapper;
 
-        public UsuarioAppService(IUsuarioRepository usuarioRepository, IMapper mapper)
+        public UsuarioAppService
+        (
+            IUsuarioRepository usuarioRepository,
+            IMapper mapper,
+            ICriptografiaService criptografiaService
+        )
         {
             _usuarioRepository = usuarioRepository;
             _mapper = mapper;
-        }
-
-        public void Add(Usuario obj)
-        {
-            throw new NotImplementedException();
+            _criptografiaService = criptografiaService;
         }
 
         public void Cadastrar(UsuarioViewModel usuarioViewModel)
         {
-            var cadastroComando = _mapper.Map<Usuario>(usuarioViewModel);
+            var usuario = _mapper.Map<Usuario>(usuarioViewModel);
 
-            _usuarioRepository.Add(cadastroComando);
+            usuario.Senha = _criptografiaService.CriptografarSenha(usuario.Senha, usuario.Email);
+
+            _usuarioRepository.Add(usuario);
         }
 
         public IEnumerable<UsuarioViewModel> GetAllUsuarioViewModel()
@@ -45,29 +49,34 @@ namespace Crm.Application
 
             return usuariosViewModel;
         }
+        public void Add(Usuario obj)
+        {
+            _usuarioRepository.Add(obj);
+        }
 
         public Usuario GetById(int id)
         {
-            throw new NotImplementedException();
+            return _usuarioRepository.GetById(id);
         }
 
         public void Remove(Usuario obj)
         {
-            throw new NotImplementedException();
+            _usuarioRepository.Remove(obj);
         }
 
         public void Update(Usuario obj)
         {
-            throw new NotImplementedException();
+            _usuarioRepository.Update(obj);
         }
 
         public void Dispose()
         {
+            _usuarioRepository.Dispose();
         }
 
         public IEnumerable<Usuario> GetAll()
         {
-            throw new NotImplementedException();
+            return _usuarioRepository.GetAll();
         }
     }
 }

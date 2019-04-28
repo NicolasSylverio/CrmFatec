@@ -26,7 +26,7 @@ namespace Crm.Mvc.Controllers
 
                 return View(listaUsuario);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return View(new List<UsuarioViewModel>());
             }
@@ -40,7 +40,7 @@ namespace Crm.Mvc.Controllers
             {
                 return View();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return View();
             }
@@ -58,7 +58,7 @@ namespace Crm.Mvc.Controllers
 
                 return View(new UsuarioViewModel());
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return View(usuarioViewModel);
             }

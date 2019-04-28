@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
-using Crm.Application;
 using Crm.Application.Interface;
+using Crm.Application.Services;
 using Crm.Domain.Interfaces.Repositories;
+using Crm.Domain.Interfaces.Services;
+using Crm.Domain.Services;
 using Crm.Infra.Data.Contexto;
 using Crm.Infra.Data.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +25,9 @@ namespace Crm.Infra.IoC
             services.AddDbContext<CrmContext>();
             services.AddEntityFrameworkSqlServer();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+            // Domain
+            services.AddScoped<ICriptografiaService, CriptografiaService>();
         }
     }
 }
