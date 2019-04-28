@@ -8,7 +8,7 @@ namespace Crm.Infra.Data.Contexto
         public CrmContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<CrmContext>();
-            optionsBuilder.UseSqlServer("Server=veurodev16;Database=nicolas;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Server=NICOLASPC;Database=CRM;Trusted_Connection=True;MultipleActiveResultSets=true");
 
             return new CrmContext(optionsBuilder.Options);
         }
