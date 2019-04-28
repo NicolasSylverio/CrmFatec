@@ -61,7 +61,42 @@
                     <span asp-validation-for="Celular" class="helper-text" data-error="wrong"></span>
                 </div>
 
-                <div class="input-field col s12 m6 l4 xl4">
+                <div class="input-field col s12 m6 l6 xl6">
+                    <i class="material-icons prefix">assignment_ind</i>
+                    <input asp-for="Cpf" id="Cpf" type="text" class="validate" data-length="11" />
+                    <label asp-for="Cpf"></label>
+                    <span asp-validation-for="Cpf" class="helper-text" data-error="wrong"></span>
+                </div>
+
+                <div class="input-field col s12 m6 l6 xl6">
+                    <i class="material-icons prefix">event</i>
+                    <input asp-for="DataNascimento" id="DataNascimento" type="date" class="" data-length="10" />
+                    <label asp-for="DataNascimento"></label>
+                    <span asp-validation-for="DataNascimento" class="helper-text" data-error="wrong"></span>
+                </div>
+
+                <div class="input-field col s12 m6 l6 xl6">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input asp-for="Login" id="Login" type="text" class="validate" data-length="20" />
+                    <label asp-for="Login"></label>
+                    <span asp-validation-for="Login" class="helper-text" data-error="wrong"></span>
+                </div>
+
+                <div class="input-field col s12 m6 l6 xl6">
+                    <i class="material-icons prefix">lock_open</i>
+                    <input asp-for="Senha" id="Senha" type="password" class="validate" data-length="20" />
+                    <label asp-for="Senha"></label>
+                    <span asp-validation-for="Senha" class="helper-text" data-error="wrong"></span>
+                </div>
+
+                <div class="input-field col s12 m4 l4 xl4">
+                    <i class="material-icons prefix">phone</i>
+                    <input asp-for="Celular" id="Celular" type="tel" class="validate" data-length="9" />
+                    <label asp-for="Celular"></label>
+                    <span asp-validation-for="Celular" class="helper-text" data-error="wrong"></span>
+                </div>
+
+                <div class="input-field col s12 m4 l4 xl4">
                     <select asp-for="Sexo">
                         <option value="" disabled selected>Selecione uma opção</option>
                         <option value="0">Feminino</option>
@@ -73,7 +108,7 @@
                     <br />
                 </div>
 
-                <div class="input-field col s12 m6 l4 xl4">
+                <div class="input-field col s12 m4 l4 xl4">
                     <select>
                         <option value="" disabled selected>Selecione uma opção</option>
                         <option value="0">Supervisor</option>
@@ -93,9 +128,11 @@
                 </div>
 
                 <div class="input-field col s12 m12 l6 xl6">
-                    <input type="submit" title="Cadastrar" asp-action="CadastroUsuario" class="btn teal lighten-2" placeholder="Cadastrar">
-                    <a asp-action="CadastroUsuario" class="btn amber lighten-2">Limpar</a>
-                    <a asp-action="Index" class="btn red lighten-2">Voltar</a>
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" title="Cadastrar" asp-action="CadastroUsuario" class="btn teal lighten-2" placeholder="Cadastrar">
+                        <a asp-action="CadastroUsuario" class="btn amber lighten-2">Limpar</a>
+                        <a asp-action="Index" class="btn red lighten-2">Voltar</a>
+                    </div>
                 </div>
             </div>
         </form>
@@ -114,6 +151,5 @@
             M.FormSelect.init(elems, options);
             M.CharacterCounter.init(textNeedCount);
         });
-
     </script>
 }
