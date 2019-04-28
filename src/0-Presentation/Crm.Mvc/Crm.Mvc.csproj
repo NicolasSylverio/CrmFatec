@@ -15,14 +15,12 @@
 
 
   <ItemGroup>
-    <Folder Include="Views\Login\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\2-Application\Crm.Application\Crm.Application.csproj" />
     <ProjectReference Include="..\..\4-Infra\4.1-Data\Crm.Infra.Data\Crm.Infra.Data.csproj" />
     <ProjectReference Include="..\..\4-Infra\4.2-CrossCutting\Crm.Infra.IoC\Crm.Infra.IoC.csproj" />
   </ItemGroup>
