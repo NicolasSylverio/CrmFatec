@@ -4,7 +4,7 @@ namespace Crm.Application.AutoMapper
 {
     public static class AutoMapperConfig
     {
-        protected static MapperConfiguration RegisterMappings()
+        public static MapperConfiguration RegisterMappings()
         {
             return new MapperConfiguration(cfg =>
             {
