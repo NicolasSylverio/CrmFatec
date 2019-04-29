@@ -1,7 +1,6 @@
 ﻿using Crm.Domain.Exceptions;
 using Crm.Domain.Interfaces.Services;
 using Crm.Domain.Models.Usuarios;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 using System.Security.Cryptography;
