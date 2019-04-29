@@ -20,8 +20,6 @@ namespace Crm.Mvc
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-
-
             RegisterServices(services);
         }
 
@@ -52,7 +50,7 @@ namespace Crm.Mvc
 
         private static void RegisterServices(IServiceCollection services)
         {
-            NativeInjectorBootStrapper.RegisterServices(services);
+            NativeInjectorBootStrapper.ResgistrarServicos(services);
         }
     }
 }
