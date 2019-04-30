@@ -1,4 +1,5 @@
-﻿using Crm.Domain.Interfaces.Services;
+﻿using Crm.Domain.Exceptions;
+using Crm.Domain.Interfaces.Services;
 using Crm.Domain.Models.Usuarios;
 using System;
 using System.IO;
@@ -22,7 +23,10 @@ namespace Crm.Domain.Services
         {
             try
             {
-                if (string.IsNullOrEmpty(text)) return null;
+                if (string.IsNullOrEmpty(text))
+                {
+                    return null;
+                }
 
                 var baseKey = Convert.FromBase64String(CryptoKey);
                 var baseText = new UTF8Encoding().GetBytes($"{text}{chave}");
@@ -44,7 +48,7 @@ namespace Crm.Domain.Services
             }
             catch (Exception ex)
             {
-                throw new Exception($"Erro ao criptografar {ex.Message}");
+                throw new DomainException($"Erro ao criptografar {ex.Message}");
             }
         }
 
@@ -65,7 +69,10 @@ namespace Crm.Domain.Services
         {
             try
             {
-                if (string.IsNullOrEmpty(texto)) return null;
+                if (string.IsNullOrEmpty(texto))
+                {
+                    return null;
+                }
 
                 var baseKey = Convert.FromBase64String(CryptoKey);
                 var baseText = new UTF8Encoding().GetBytes(texto);
@@ -87,7 +94,7 @@ namespace Crm.Domain.Services
             }
             catch (Exception ex)
             {
-                throw new Exception($"Erro ao criptografar {ex.Message}");
+                throw new DomainException($"Erro ao criptografar {ex.Message}");
             }
         }
 

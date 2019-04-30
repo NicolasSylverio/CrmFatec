@@ -50,8 +50,8 @@ namespace Crm.Application.ViewModels
         public string Cpf { get; set; }
 
         [Required(ErrorMessage = "O Campo Celular é Obrigatorio")]
-        [MaxLength(15, ErrorMessage = "O campo Celular deve ter no maximo 15 caracteres")]
-        [MinLength(8, ErrorMessage = "O campo Celular deve ter pelo menos 8 caracteres")]
+        [MaxLength(9, ErrorMessage = "O campo Celular deve ter 9 caracteres")]
+        [MinLength(9, ErrorMessage = "O campo Celular deve ter 9 caracteres")]
         [DisplayName("Celular")]
         public string Celular { get; set; }
 

@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Crm.Infra.Data.Contexto
 {
@@ -7,8 +9,16 @@ namespace Crm.Infra.Data.Contexto
     {
         public CrmContext CreateDbContext(string[] args)
         {
+            var configuration = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json")
+               .Build();
+
             var optionsBuilder = new DbContextOptionsBuilder<CrmContext>();
-            optionsBuilder.UseSqlServer("Server=NICOLASPC;Database=Crm;Trusted_Connection=True;MultipleActiveResultSets=true");
+
+            var connectionString = configuration.GetConnectionString("CrmConnection");
+
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new CrmContext(optionsBuilder.Options);
         }
