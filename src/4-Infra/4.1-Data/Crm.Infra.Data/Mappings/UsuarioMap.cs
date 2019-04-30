@@ -1,5 +1,4 @@
-﻿using Crm.Domain.Models;
-using Crm.Domain.Models.Usuarios;
+﻿using Crm.Domain.Models.Usuarios;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

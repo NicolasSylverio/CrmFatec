@@ -13,7 +13,12 @@ namespace Crm.Infra.IoC
 {
     public class NativeInjectorBootStrapper
     {
-        public static void RegisterServices(IServiceCollection services)
+        public static void ResgistrarServicos(IServiceCollection services)
+        {
+            RegisterServices(services);
+        }
+
+        protected static void RegisterServices(IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
