@@ -1,4 +1,4 @@
-﻿@model Crm.Application.ViewModels.AccountViewModels.SignUpViewModel
+﻿@model Crm.Application.ViewModels.AccountViewModels.RegisterViewModel
 
 <div class="container">
     <div class="row">
@@ -31,22 +31,16 @@
                     </div>
 
                     <div class="input-field col s12 m12 l12 xl12 center">
-                        <input asp-for="UserName" id="UserName" type="text" class="validate" data-length="16" />
-                        <label asp-for="UserName"></label>
-                        <span asp-validation-for="UserName" class="helper-text"></span>
-                    </div>
-
-                    <div class="input-field col s12 m12 l12 xl12 center">
-                        <input asp-for="Cpf" id="Cpf" type="text" class="validate" data-length="11" />
-                        <label asp-for="Cpf"></label>
-                        <span asp-validation-for="Cpf" class="helper-text"></span>
-                    </div>
-
-                    <div class="input-field col s12 m12 l12 xl12 center">
                         <input asp-for="Senha" id="Senha" type="password" class="validate" min="6" data-length="16" />
                         <label asp-for="Senha"></label>
                         <span asp-validation-for="Senha" class="helper-text"></span>
                         <span class="helper-text">tenha certeza que sua senha contenha até 15 ou pelo menos 8 caracteres, incluindo numeros, letras minusculas e letras maiusculas.</span>
+                    </div>
+
+                    <div class="input-field col s12 m12 l12 xl12 center">
+                        <input asp-for="ConfirmarSenha" id="ConfirmarSenha" type="password" class="validate" min="6" data-length="16" />
+                        <label asp-for="ConfirmarSenha"></label>
+                        <span asp-validation-for="ConfirmarSenha" class="helper-text"></span>
                     </div>
 
                     <br />

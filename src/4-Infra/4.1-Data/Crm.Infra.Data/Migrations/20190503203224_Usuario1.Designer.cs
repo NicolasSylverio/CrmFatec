@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Crm.Infra.Data.Migrations
 {
     [DbContext(typeof(CrmContext))]
-    [Migration("20190420051746_migrations")]
-    partial class migrations
+    [Migration("20190503203224_Usuario1")]
+    partial class Usuario1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace Crm.Infra.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Crm.Domain.Models.Usuario", b =>
+            modelBuilder.Entity("Crm.Domain.Models.Usuarios.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace Crm.Infra.Data.Migrations
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnName("Senha")
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<int>("Sexo")
                         .HasColumnName("Sexo")

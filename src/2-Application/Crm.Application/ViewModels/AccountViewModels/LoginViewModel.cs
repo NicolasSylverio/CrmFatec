@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Crm.Application.ViewModels
+namespace Crm.Application.ViewModels.AccountViewModels
 {
     public class LoginViewModel
     {
@@ -19,5 +19,7 @@ namespace Crm.Application.ViewModels
         [MaxLength(16, ErrorMessage = "O campo Nome deve ter no maximo 16 caracteres")]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
+
+        public bool RememberMe { get; set; }
     }
 }

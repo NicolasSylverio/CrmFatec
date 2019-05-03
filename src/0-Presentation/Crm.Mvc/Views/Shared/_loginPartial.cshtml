@@ -1,4 +1,12 @@
-﻿<ul class="sidenav" id="slide_login">
+﻿@using Crm.Infra.CrossCutting.Identity.Models
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+
+<ul class="sidenav" id="slide_login">
     <li>
         <div class="user-view">
             <div class="background">
@@ -8,7 +16,7 @@
                 <img class="circle" src="~/imagens/avatarPadrao.png" alt="Avatar">
             </a>
             <a href="#">
-                <span class="black-text name">Nicolas Sylverio Pereira</span>
+                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
             </a>
             <a href="#">
                 <span class="black-text email">nicolas@hotmail.com</span>
@@ -16,11 +24,11 @@
         </div>
     </li>
     <li>
-        <a><i class="material-icons left">notifications</i>Notificações</a>
+        <a class="waves-effect"><i class="material-icons left">notifications</i>Notificações</a>
     </li>
     <li><div class="divider"></div></li>
     <li>
-        <a><i class="material-icons">message</i> Mensagens</a>
+        <a class="waves-effect"><i class="material-icons">message</i> Mensagens</a>
     </li>
     <li><div class="divider"></div></li>
 </ul>

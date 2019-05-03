@@ -19,7 +19,7 @@ namespace Crm.Infra.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Crm.Domain.Models.Usuario", b =>
+            modelBuilder.Entity("Crm.Domain.Models.Usuarios.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace Crm.Infra.Data.Migrations
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnName("Senha")
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<int>("Sexo")
                         .HasColumnName("Sexo")

@@ -4,13 +4,18 @@ using System.Diagnostics;
 
 namespace Crm.Mvc.Controllers
 {
+    [Route("home")]
     public class HomeController : Controller
     {
+        [Route("welcome")]
+        [Route("")]
+        [Route("/")]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Route("privacy")]
         public IActionResult Privacy()
         {
             return View();
