@@ -1,4 +1,6 @@
-﻿<style>
+﻿
+
+<style>
 
     #logo-container {
         height: 57px;
@@ -108,12 +110,13 @@
         <div class="divider"></div>
     </li>
     <li>
-        <a asp-area="" asp-controller="Account" asp-action="Index" class="collapsible-header waves-effect waves-teal">Login<i class="material-icons">lock_open</i></a>
+        <a asp-area="" asp-controller="Account" asp-action="Login" class="collapsible-header waves-effect waves-teal">Login<i class="material-icons">lock_open</i></a>
     </li>
     <li>
         <div class="divider"></div>
     </li>
 </ul>
+
 
 @await Html.PartialAsync("_LoginPartial")
 

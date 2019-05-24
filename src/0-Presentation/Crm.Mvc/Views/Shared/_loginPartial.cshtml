@@ -15,9 +15,7 @@
             <a href="#">
                 <img class="circle" src="~/imagens/avatarPadrao.png" alt="Avatar">
             </a>
-            <a href="#">
-                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-            </a>
+            <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
             <a href="#">
                 <span class="black-text email">nicolas@hotmail.com</span>
             </a>
@@ -31,6 +29,9 @@
         <a class="waves-effect"><i class="material-icons">message</i> Mensagens</a>
     </li>
     <li><div class="divider"></div></li>
+    <li>
+        <a class="waves-effect" asp-area="" asp-controller="Account" asp-action="Logout"><i class="material-icons">lock</i>Sair</a>
+    </li>
 </ul>
 
 

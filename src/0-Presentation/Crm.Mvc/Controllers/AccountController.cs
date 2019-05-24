@@ -37,8 +37,16 @@ namespace Crm.Mvc.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            return View(Login());
+            return View(new RegisterViewModel());
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult Index(RegisterViewModel usuario)
+        {
+            return View(usuario);
+        }
+
 
         [HttpGet]
         [Route("account/login")]
@@ -134,7 +142,7 @@ namespace Crm.Mvc.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction(nameof(HomeController.Index), "Home");
-        }
+        } 
 
         [HttpGet]
         [Route("account/register")]
@@ -152,25 +160,25 @@ namespace Crm.Mvc.Controllers
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            if (ModelState.IsValid)
+
+            if (!ModelState.IsValid) return View(model);
+
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
+            var result = await _userManager.CreateAsync(user, model.Senha);
+
+            if (result.Succeeded)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                await _userManager.AddClaimAsync(user, new Claim("Customers", "Write"));
 
-                var result = await _userManager.CreateAsync(user, model.Senha);
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+                await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
-                if (result.Succeeded)
-                {
-                    await _userManager.AddClaimAsync(user, new Claim("Customers", "Write"));
-
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
-
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToLocal(returnUrl);
-                }
-                AddErrors(result);
+                await _signInManager.SignInAsync(user, false);
+                return RedirectToLocal(returnUrl);
             }
+            AddErrors(result);
 
             return View(model);
         }
@@ -282,10 +290,8 @@ namespace Crm.Mvc.Controllers
             {
                 return Redirect(returnUrl);
             }
-            else
-            {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
-            }
+
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
     }
 }
