@@ -29,8 +29,8 @@ namespace Crm.Mvc
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("CanWriteCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Usuario", "Write")));
-                options.AddPolicy("CanRemoveCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Usuario", "Remove")));
+                options.AddPolicy("AdicionarUsuario", policy => policy.Requirements.Add(new ClaimRequirement("Usuario", "Write")));
+                options.AddPolicy("RemoverUsuario", policy => policy.Requirements.Add(new ClaimRequirement("Usuario", "Remove")));
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -51,7 +51,7 @@ namespace Crm.Mvc
                 .AddCookie(o =>
                 {
                     o.LoginPath = new PathString("/login");
-                    o.AccessDeniedPath = new PathString("/login");
+                    o.AccessDeniedPath = new PathString("/home/access-denied");
                 });
 
             RegisterServices(services);

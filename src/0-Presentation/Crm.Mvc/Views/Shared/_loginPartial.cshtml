@@ -5,35 +5,54 @@
 @inject UserManager<ApplicationUser> UserManager
 
 
-
-<ul class="sidenav" id="slide_login">
-    <li>
-        <div class="user-view">
-            <div class="background">
-                <img src="~/imagens/fundoPadrao.png" alt="Imagem Fundo">
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-controller="Account" asp-action="Logout" method="post">
+        <ul class="sidenav" id="slide_login">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="~/imagens/fundoPadrao.png" alt="Imagem Fundo">
+                    </div>
+                    <a href="#">
+                        <img class="circle" src="~/imagens/avatarPadrao.png" alt="Avatar">
+                    </a>
+                    <a href="#name">
+                        <span class="black-text name">teste nome</span>
+                    </a>
+                    <a href="#">
+                        <span style="padding-bottom: 0" class="black-text email">@UserManager.GetUserName(User)</span>
+                    </a>
+                    <button class="btn-flat center" type="submit">Log out</button>
+                </div>
+            </li>
+            <li>
+                <a class="waves-effect"><i class="material-icons left">notifications</i>Notificações</a>
+            </li>
+            <li><div class="divider"></div></li>
+            <li>
+                <a class="waves-effect"><i class="material-icons">message</i> Mensagens</a>
+            </li>
+            <li><div class="divider"></div></li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="sidenav" id="slide_login">
+        <li>
+            <div class="user-view" style="height:100px;">
+                <div class="background">
+                    <img src="~/imagens/fundoPadrao.png" alt="Imagem Fundo">
+                </div>
             </div>
-            <a href="#">
-                <img class="circle" src="~/imagens/avatarPadrao.png" alt="Avatar">
-            </a>
-            <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-            <a href="#">
-                <span class="black-text email">nicolas@hotmail.com</span>
-            </a>
-        </div>
-    </li>
-    <li>
-        <a class="waves-effect"><i class="material-icons left">notifications</i>Notificações</a>
-    </li>
-    <li><div class="divider"></div></li>
-    <li>
-        <a class="waves-effect"><i class="material-icons">message</i> Mensagens</a>
-    </li>
-    <li><div class="divider"></div></li>
-    <li>
-        <a class="waves-effect" asp-area="" asp-controller="Account" asp-action="Logout"><i class="material-icons">lock</i>Sair</a>
-    </li>
-</ul>
+        </li>
+        <li>
 
+        </li>
+        <li><div class="divider"></div></li>
+    </ul>
+}
 
 <script language="javascript">
 

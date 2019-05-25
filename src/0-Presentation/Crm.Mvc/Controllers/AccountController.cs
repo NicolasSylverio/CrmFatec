@@ -141,6 +141,7 @@ namespace Crm.Mvc.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
+
             return RedirectToAction(nameof(HomeController.Index), "Home");
         } 
 
@@ -169,7 +170,7 @@ namespace Crm.Mvc.Controllers
 
             if (result.Succeeded)
             {
-                await _userManager.AddClaimAsync(user, new Claim("Customers", "Write"));
+                await _userManager.AddClaimAsync(user, new Claim("Usuario", "Write"));
 
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
@@ -292,6 +293,13 @@ namespace Crm.Mvc.Controllers
             }
 
             return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
+        [HttpGet]
+        //[Route("account/access-denied")]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }
