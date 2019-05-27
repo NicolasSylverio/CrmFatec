@@ -21,7 +21,7 @@ namespace Crm.Mvc
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -84,7 +84,7 @@ namespace Crm.Mvc
 
         private static void RegisterServices(IServiceCollection services)
         {
-            NativeInjectorBootStrapper.ResgistrarServicos(services);
+            NativeInjectorBootStrapper.RegisterServices(services);
         }
     }
 }
