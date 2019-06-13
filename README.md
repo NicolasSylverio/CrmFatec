@@ -14,7 +14,6 @@ Curso: Gestão da Tecnologia da Informação
  - [Microsoft .Net Core Identity](https://docs.microsoft.com/pt-br/aspnet/core/security/authentication/identity?view=aspnetcore-2.2&tabs=visual-studio)
 - [AutoMapper](https://automapper.org/)
 - [Materialize](https://materializecss.com/)
-- []
 
 ## Arquitetura:
 - Domain Driven Design (Camadas e Padrão de Modelo de Domínio)
