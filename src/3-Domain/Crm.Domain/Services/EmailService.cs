@@ -12,12 +12,12 @@ namespace Crm.Domain.Services
             var client = new SmtpClient
             {
                 Host = "smtp.mailtrap.io",
-                Credentials = new NetworkCredential("2d42a0b110aee6", "f22bbd40b014d8"),
+                Credentials = new NetworkCredential("9f060dd0b0263b", "22d02ee66e21ff"),
                 EnableSsl = true,
                 Port = 2525
             };
 
-            client.Send("from@example.com", email, subject, message);
+            //client.Send("from@example.com", email, subject, message);
 
             return Task.CompletedTask;
         }
