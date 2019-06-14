@@ -4,6 +4,7 @@ using Crm.Application.Services;
 using Crm.Domain.Interfaces.Repositories;
 using Crm.Domain.Interfaces.Services;
 using Crm.Domain.Services;
+using Crm.Infra.CrossCutting.Identity;
 using Crm.Infra.CrossCutting.Identity.Interfaces;
 using Crm.Infra.CrossCutting.Identity.Models;
 using Crm.Infra.Data.Contexto;
@@ -34,6 +35,7 @@ namespace Crm.Infra.IoC
 
             // Identity
             services.AddScoped<IUser, AspNetUser>();
+            services.AddScoped<IIdentityRepository, IdentityRepository>();
         }
     }
 }

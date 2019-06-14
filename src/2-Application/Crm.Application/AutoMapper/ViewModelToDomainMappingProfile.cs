@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Crm.Application.ViewModels;
-using Crm.Domain.Models;
+using Crm.Application.ViewModels.PermissionViewModels;
+using Crm.Domain.Models.Permission;
 using Crm.Domain.Models.Usuarios;
 
 namespace Crm.Application.AutoMapper
@@ -10,6 +11,7 @@ namespace Crm.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<UsuarioViewModel, Usuario>();
+            CreateMap<UserPermissionViewModel, UserPermissions>();
         }
     }
 }

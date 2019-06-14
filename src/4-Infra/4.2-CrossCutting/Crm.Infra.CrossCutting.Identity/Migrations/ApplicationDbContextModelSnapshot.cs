@@ -19,7 +19,7 @@ namespace Crm.Infra.CrossCutting.Identity.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Crm.Infra.CrossCutting.Identity.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Crm.Domain.Models.Permission.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -28,6 +28,8 @@ namespace Crm.Infra.CrossCutting.Identity.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<string>("Curso");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -190,7 +192,7 @@ namespace Crm.Infra.CrossCutting.Identity.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Crm.Infra.CrossCutting.Identity.Models.ApplicationUser")
+                    b.HasOne("Crm.Domain.Models.Permission.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -198,7 +200,7 @@ namespace Crm.Infra.CrossCutting.Identity.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Crm.Infra.CrossCutting.Identity.Models.ApplicationUser")
+                    b.HasOne("Crm.Domain.Models.Permission.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -211,7 +213,7 @@ namespace Crm.Infra.CrossCutting.Identity.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Crm.Infra.CrossCutting.Identity.Models.ApplicationUser")
+                    b.HasOne("Crm.Domain.Models.Permission.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -219,7 +221,7 @@ namespace Crm.Infra.CrossCutting.Identity.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Crm.Infra.CrossCutting.Identity.Models.ApplicationUser")
+                    b.HasOne("Crm.Domain.Models.Permission.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

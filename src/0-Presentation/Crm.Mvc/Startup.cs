@@ -1,4 +1,5 @@
 ﻿using Crm.Domain.Enum;
+using Crm.Domain.Models.Permission;
 using Crm.Infra.CrossCutting.Identity.Authorization;
 using Crm.Infra.CrossCutting.Identity.Data;
 using Crm.Infra.CrossCutting.Identity.Models;
