@@ -3,4 +3,78 @@
     ViewData["Title"] = "Permissões";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <h3>@ViewData["Title"]</h3>
+
+    <br />
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6 m6 l6 xl6">
+                    <i class="material-icons prefix">search</i>
+                    <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                    <label for="icon_prefix2">Consulta Usuário</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <table class="table responsive-table highlight">
+        <thead>
+            <tr>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Editar" class="btn yellow lighten-2 waves-effect">
+                            <i class="material-icons">edit</i>
+                        </a>
+
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes" class="btn blue lighten-2 waves-effect">
+                            <i class="material-icons">details</i>
+                        </a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Deletar" class="btn red lighten-2 waves-effect">
+                            <i class="material-icons">delete</i>
+                        </a>
+
+                        <button type="button" class="btn purple lighten-2 waves-effect" title="Historico" data-id="@item.Id" data-toggle="modal">
+                            <i class="material-icons">history</i>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

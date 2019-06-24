@@ -6,10 +6,8 @@ namespace Crm.Application.ViewModels.PermissionViewModels
 {
     public class UserPermissionViewModel
     {
-        public ApplicationUser IdentityUser { get; set; }
-
-        public IEnumerable<RoleClaims> Roles { get; set; }
-
+        public ApplicationUser User { get; set; }
+        public IEnumerable<string> Roles { get; set; }
         public IEnumerable<Claim> Claims { get; set; }
     }
 }

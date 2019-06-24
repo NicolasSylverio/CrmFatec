@@ -4,25 +4,21 @@ using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace Crm.Infra.CrossCutting.Identity
 {
     public class IdentityRepository : IIdentityRepository
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
         public IdentityRepository
         (
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
             RoleManager<IdentityRole> roleManager
         )
         {
             _userManager = userManager;
-            _signInManager = signInManager;
             _roleManager = roleManager;
         }
 
@@ -31,14 +27,19 @@ namespace Crm.Infra.CrossCutting.Identity
             return _roleManager.Roles;
         }
 
-        public async Task<IEnumerable<string>> GetPermissionsByUser(ApplicationUser appUser)
+        public IList<Claim> GetClaimsByUser(ApplicationUser appUser)
         {
-            return await _userManager.GetRolesAsync(appUser);
+            return _userManager.GetClaimsAsync(appUser).Result;
         }
 
-        public async Task<IEnumerable<Claim>> GetClaimByRole(IdentityRole appRole)
+        public IEnumerable<string> GetPermissionsRoleByUser(ApplicationUser appUser)
         {
-            return await _roleManager.GetClaimsAsync(appRole);
+            return _userManager.GetRolesAsync(appUser).Result;
+        }
+
+        public IEnumerable<Claim> GetClaimByRole(IdentityRole appRole)
+        {
+            return _roleManager.GetClaimsAsync(appRole).Result;
         }
 
         public async void AddRoleAsync(IdentityRole appRole)
@@ -54,6 +55,26 @@ namespace Crm.Infra.CrossCutting.Identity
         public async void AddUserToRoleAsync(ApplicationUser appUser, IdentityRole appRole)
         {
             await _userManager.AddToRoleAsync(appUser, appRole.Name);
+        }
+
+        public IdentityRole GetRoleByName(string nome)
+        {
+            return _roleManager.Roles.FirstOrDefault(x => x.Name == nome);
+        }
+
+        public IEnumerable<ApplicationUser> GetAllUsers()
+        {
+            return _userManager.Users.ToList();
+        }
+
+        public IEnumerable<ApplicationUser> GetAllUsersByName(string name)
+        {
+            return _userManager.Users.Where(x => x.UserName.Contains(name));
+        }
+
+        public IEnumerable<ApplicationUser> GetAllUsersByEmail(string email)
+        {
+            return _userManager.Users.Where(x => x.Email.Contains(email));
         }
     }
 }

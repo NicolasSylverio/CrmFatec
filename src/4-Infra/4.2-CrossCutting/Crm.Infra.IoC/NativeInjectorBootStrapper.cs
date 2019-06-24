@@ -23,6 +23,7 @@ namespace Crm.Infra.IoC
             // Application
             services.AddAutoMapper();
             services.AddScoped<IUsuarioAppService, UsuarioAppService>();
+            services.AddScoped<IPermissionAppService, PermissionAppService>();
 
             // Infra - Data
             services.AddDbContext<CrmContext>();
@@ -32,6 +33,7 @@ namespace Crm.Infra.IoC
             // Domain
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddTransient<IEmailService, EmailService>();
+            services.AddScoped<IPermissionService, PermissionService>();
 
             // Identity
             services.AddScoped<IUser, AspNetUser>();

@@ -1,9 +1,7 @@
-﻿using Crm.Infra.CrossCutting.Identity.Models;
+﻿using Crm.Domain.Models.Permission;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using Crm.Domain.Models.Permission;
 
 namespace Crm.Infra.CrossCutting.Identity.Interfaces
 {
@@ -11,14 +9,24 @@ namespace Crm.Infra.CrossCutting.Identity.Interfaces
     {
         IEnumerable<IdentityRole> GetAllRoles();
 
-        Task<IEnumerable<string>> GetPermissionsByUser(ApplicationUser appUser);
+        IdentityRole GetRoleByName(string nome);
 
-        Task<IEnumerable<Claim>> GetClaimByRole(IdentityRole appRole);
+        IList<Claim> GetClaimsByUser(ApplicationUser appUser);
+
+        IEnumerable<string> GetPermissionsRoleByUser(ApplicationUser appUser);
+
+        IEnumerable<Claim> GetClaimByRole(IdentityRole appRole);
 
         void AddRoleAsync(IdentityRole appRole);
 
         void AddClaimToRole(IdentityRole appRole, IEnumerable<Claim> claims);
 
         void AddUserToRoleAsync(ApplicationUser appUser, IdentityRole appRole);
+
+        IEnumerable<ApplicationUser> GetAllUsers();
+
+        IEnumerable<ApplicationUser> GetAllUsersByName(string name);
+
+        IEnumerable<ApplicationUser> GetAllUsersByEmail(string email);
     }
 }

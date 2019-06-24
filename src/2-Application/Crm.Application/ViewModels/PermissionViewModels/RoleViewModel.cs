@@ -1,4 +1,4 @@
-﻿using Crm.Domain.Models.Permission;
+﻿using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Security.Claims;
 
@@ -6,7 +6,7 @@ namespace Crm.Application.ViewModels.PermissionViewModels
 {
     public class RoleViewModel
     {
-        public RoleClaims IdentityRoleClaims { get; set; }
-        public IEnumerable<Claim> Claims { get; set; }
+        public IdentityRole IdentityRole { get; set; }
+        public IEnumerable<Claim> RoleClaims { get; set; }
     }
 }

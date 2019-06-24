@@ -10,8 +10,9 @@ namespace Crm.Application.AutoMapper
     {
         public ViewModelToDomainMappingProfile()
         {
-            CreateMap<UsuarioViewModel, Usuario>();
-            CreateMap<UserPermissionViewModel, UserPermissions>();
+            CreateMap<ViewModels.UsuarioViewModel, Usuario>();
+            CreateMap<UserPermissionViewModel, UserPermission>();
+            CreateMap<RoleViewModel, Role>();
         }
     }
 }
