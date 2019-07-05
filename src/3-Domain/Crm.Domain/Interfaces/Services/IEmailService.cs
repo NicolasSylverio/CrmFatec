@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Crm.Domain.Models.Services;
+﻿using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace Crm.Domain.Interfaces.Services
 {
@@ -7,6 +7,6 @@ namespace Crm.Domain.Interfaces.Services
     {
         Task SendEmailAsync(string email, string subject, string message);
 
-        Task SendEmailAsync(EmailMessage emailMessage);
+        Task SendEmailAsync(MailMessage emailMessage);
     }
 }
