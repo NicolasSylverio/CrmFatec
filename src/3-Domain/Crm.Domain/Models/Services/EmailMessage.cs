@@ -6,17 +6,15 @@ namespace Crm.Domain.Models.Services
     {
         public EmailMessage
         (
-            string From,
-            string To,
+            string from,
+            string to,
             string subject,
-            string body,
-            MailPriority mailPriority = MailPriority.Normal,
-            bool IsHtmlBody = true
+            string body
         )
-        : base(From, To, subject, body)
+            : base(from, to, subject, body)
         {
-            Priority = mailPriority;
-            IsBodyHtml = IsHtmlBody;
+            Priority = MailPriority.Normal;
+            IsBodyHtml = true;
         }
     }
 }

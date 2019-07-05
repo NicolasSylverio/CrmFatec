@@ -14,7 +14,12 @@ namespace Crm.Domain.Services
         private const int Port = 2525;
         private const string From = "nicolas@fatec.com";
 
-        public Task SendEmailAsync(string email, string subject, string message)
+        Task IEmailService.SendEmailAsync(EmailMessage emailMessage)
+        {
+            return SendEmailAsync(emailMessage);
+        }
+
+        private static Task SendEmailAsync(string email, string subject, string message)
         {
             var client = new SmtpClient
             {
@@ -29,7 +34,12 @@ namespace Crm.Domain.Services
             return Task.CompletedTask;
         }
 
-        public Task SendEmailAsync(EmailMessage emailMessage)
+        Task IEmailService.SendEmailAsync(string email, string subject, string message)
+        {
+            return SendEmailAsync(email, subject, message);
+        }
+
+        private static Task SendEmailAsync(MailMessage emailMessage)
         {
             var client = new SmtpClient
             {
