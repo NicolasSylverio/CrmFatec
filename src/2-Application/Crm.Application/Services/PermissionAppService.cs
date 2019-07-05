@@ -54,9 +54,12 @@ namespace Crm.Application.Services
             return lista;
         }
 
-        public void ListAllUsers()
+        public ConsultaUsuarioViewModel ListAllUsers()
         {
-            var usuarios = _identityRepository.GetAllUsers();            
+            return new ConsultaUsuarioViewModel
+            {
+                ListaUsuarios = _identityRepository.GetAllUsers()
+            };
         }
     }
 }

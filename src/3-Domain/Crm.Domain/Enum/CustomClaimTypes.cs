@@ -2,7 +2,7 @@
 {
     public static class CustomClaimTypes
     {
-        public const string Menu = "Menu";
-        public const string Permissao = "Permissao";
+        public static readonly string Menu = "Menu";
+        public static readonly string Permissao = "Permissao";
     }
 }

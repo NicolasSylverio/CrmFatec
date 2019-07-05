@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Crm.Infra.CrossCutting.Identity
 {
@@ -42,7 +43,7 @@ namespace Crm.Infra.CrossCutting.Identity
             return _roleManager.GetClaimsAsync(appRole).Result;
         }
 
-        public async void AddRoleAsync(IdentityRole appRole)
+        public async Task AddRoleAsync(IdentityRole appRole)
         {
             await _roleManager.CreateAsync(appRole);
         }
@@ -52,7 +53,7 @@ namespace Crm.Infra.CrossCutting.Identity
             claims.ToList().ForEach(async x => await _roleManager.AddClaimAsync(appRole, x));
         }
 
-        public async void AddUserToRoleAsync(ApplicationUser appUser, IdentityRole appRole)
+        public async Task AddUserToRoleAsync(ApplicationUser appUser, IdentityRole appRole)
         {
             await _userManager.AddToRoleAsync(appUser, appRole.Name);
         }

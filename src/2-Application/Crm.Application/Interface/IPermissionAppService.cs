@@ -9,5 +9,7 @@ namespace Crm.Application.Interface
         UserPermissionViewModel ListAllUserPermission(ApplicationUser appUser);
 
         IEnumerable<RoleViewModel> ListAllRoles();
+
+        ConsultaUsuarioViewModel ListAllUsers();
     }
 }

@@ -8,6 +8,10 @@ namespace Crm.Domain.Services
 {
     public class PermissionService : IPermissionService
     {
+        public PermissionService()
+        {
+        }
+
         public Role ComposeRole
         (
             IdentityRole identityRole,

@@ -18,7 +18,9 @@ namespace Crm.Mvc.Controllers
         [Authorize(Roles = "User")]
         public IActionResult Index()
         {
-            return View();
+            var consultaUsuarioViewModel = _permissionAppService.ListAllUsers();
+
+            return View(consultaUsuarioViewModel);
         }
 
         [HttpGet]

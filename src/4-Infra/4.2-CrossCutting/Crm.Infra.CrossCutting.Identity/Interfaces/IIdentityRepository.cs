@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Crm.Infra.CrossCutting.Identity.Interfaces
 {
@@ -17,11 +18,11 @@ namespace Crm.Infra.CrossCutting.Identity.Interfaces
 
         IEnumerable<Claim> GetClaimByRole(IdentityRole appRole);
 
-        void AddRoleAsync(IdentityRole appRole);
+        Task AddRoleAsync(IdentityRole appRole);
 
         void AddClaimToRole(IdentityRole appRole, IEnumerable<Claim> claims);
 
-        void AddUserToRoleAsync(ApplicationUser appUser, IdentityRole appRole);
+        Task AddUserToRoleAsync(ApplicationUser appUser, IdentityRole appRole);
 
         IEnumerable<ApplicationUser> GetAllUsers();
 

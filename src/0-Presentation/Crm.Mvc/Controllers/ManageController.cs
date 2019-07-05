@@ -1,12 +1,11 @@
 ﻿using Crm.Application.ViewModels.ManageViewModels;
-using Crm.Infra.CrossCutting.Identity.Models;
+using Crm.Domain.Models.Permission;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
-using Crm.Domain.Models.Permission;
 
 namespace Crm.Mvc.Controllers
 {
