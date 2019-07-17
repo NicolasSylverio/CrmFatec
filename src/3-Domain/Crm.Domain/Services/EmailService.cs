@@ -45,6 +45,7 @@ namespace Crm.Domain.Services
             {
                 Host = Host,
                 Credentials = new NetworkCredential(CredencialsUserName, CredentialsPassword),
+
                 EnableSsl = true,
                 Port = Port
             };
