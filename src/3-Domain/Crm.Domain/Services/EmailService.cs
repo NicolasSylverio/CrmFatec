@@ -1,4 +1,5 @@
 ﻿using Crm.Domain.Interfaces.Services;
+using Crm.Domain.Models.Services;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
