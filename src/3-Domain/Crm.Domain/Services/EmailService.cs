@@ -1,5 +1,4 @@
 ﻿using Crm.Domain.Interfaces.Services;
-using Crm.Domain.Models.Services;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
@@ -14,12 +13,12 @@ namespace Crm.Domain.Services
         private const int Port = 2525;
         private const string From = "nicolas@fatec.com";
 
-        Task IEmailService.SendEmailAsync(EmailMessage emailMessage)
+        public Task SendEmailAsync(string email, string subject, string message)
         {
-            return SendEmailAsync(emailMessage);
+            return SendEmailAsyncByProperties(email, subject, message);
         }
 
-        private static Task SendEmailAsync(string email, string subject, string message)
+        private static Task SendEmailAsyncByProperties(string email, string subject, string message)
         {
             var client = new SmtpClient
             {
@@ -34,12 +33,12 @@ namespace Crm.Domain.Services
             return Task.CompletedTask;
         }
 
-        Task IEmailService.SendEmailAsync(string email, string subject, string message)
+        public Task SendEmailAsync(MailMessage mailMessage)
         {
-            return SendEmailAsync(email, subject, message);
+            return SendEmailAsyncByProperties(mailMessage);
         }
 
-        private static Task SendEmailAsync(MailMessage emailMessage)
+        private static Task SendEmailAsyncByProperties(MailMessage emailMessage)
         {
             var client = new SmtpClient
             {
