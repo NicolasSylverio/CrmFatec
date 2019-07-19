@@ -1,15 +1,9 @@
 ﻿using Xunit;
 
-namespace Crm.Test._2_ApplicationTest
+namespace Crm.Test
 {
     public class AutoMapperTest
     {
 
-
-        [Fact]
-        public void Test1()
-        {
-
-        }
     }
 }
