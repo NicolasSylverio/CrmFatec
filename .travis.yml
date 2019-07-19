@@ -11,4 +11,4 @@ install:
 script:
   - dotnet build
   - dotnet test src/5-Tests/Crm.Test/Crm.Test.csproj -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=".coverage/coverage.opencover.xml"
-  - $HOME/.dotnet/tools/csmacnz.Coveralls -i src/5-Tests/Crm.Tests/.coverage/coverage.opencover.xml --opencover --repoToken $COVERALLS_REPO_TOKEN --jobId $TRAVIS_JOB_ID --serviceName "travis-ci" --useRelativePaths
+  - $HOME/.dotnet/tools/csmacnz.Coveralls -i src/5-Tests/Crm.Test/.coverage/coverage.opencover.xml --opencover --repoToken $COVERALLS_REPO_TOKEN --jobId $TRAVIS_JOB_ID --serviceName "travis-ci" --useRelativePaths
