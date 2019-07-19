@@ -1,13 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28922.388
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6FF94467-B4B8-4AEB-9C07-47DB0A49E77D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Itens", "Solution Itens", "{B0E2F549-A5E8-4ADB-AF37-FB976F430428}"
 	ProjectSection(SolutionItems) = preProject
-		.coveralls.yml = .coveralls.yml
 		.gitignore = .gitignore
 		.travis.yml = .travis.yml
 		appveyor.yml = appveyor.yml
@@ -42,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crm.Infra.CrossCutting.Iden
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Tests", "5-Tests", "{61EE50C2-7D07-4928-B684-795D4F712680}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crm.Test", "src\5-Tests\Crm.Test\Crm.Test.csproj", "{E1B079E1-823C-4225-B99C-C474776932CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crm.Test", "src\5-Tests\Crm.Test\Crm.Test.csproj", "{E1B079E1-823C-4225-B99C-C474776932CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
