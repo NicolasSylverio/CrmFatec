@@ -27,6 +27,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.2.0" />
+    <Folder Include="Models\AccountViewModels\" />
   </ItemGroup>
 
   <ItemGroup>

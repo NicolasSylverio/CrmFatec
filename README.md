@@ -6,7 +6,6 @@ Projeto de conclusão de curso da fatec jundiai  2° Semestre 2019
 
 Curso: *Gestão da Tecnologia da Informação*
 
-
 ## Tecnologias Utilizadas
 - [ASP.NET Core 2.2 (with .NET Core 2.2)](https://docs.microsoft.com/pt-br/aspnet/core/release-notes/aspnetcore-2.2?view=aspnetcore-2.2)
  - [ASP.NET MVC Core](https://docs.microsoft.com/pt-br/aspnet/core/mvc/overview?view=aspnetcore-2.2)
