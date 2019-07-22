@@ -10,11 +10,11 @@ image: Visual Studio 2017
 platform: Any CPU
 clone_folder: c:\projects\CrmFatec
 build:
-  project: CrmFatec
+  project: Crm.sln
   publish_wap: true
   publish_aspnet_core: true
   verbosity: minimal
 test:
   assemblies:
     only:
-    - ../src/5-Tests/Crm.Test
+    - ../src/5-Tests/
