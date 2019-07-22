@@ -12,14 +12,8 @@ clone_folder: c:\projects\CrmFatec
 before_build:
 - cmd: >-
     dotnet restore
-    dotnet clean Crm.Mvc.csproj
-    dotnet clean Crm.Domain.csproj
-    dotnet clean Crm.Application.csproj
-    dotnet clean Crm.Test.csproj
-    dotnet build Crm.Mvc.csproj
-    dotnet build Crm.Domain.csproj
-    dotnet build Crm.Application.csproj
-    dotnet build Crm.Test.csproj
+    dotnet clean Crm.sln
+    dotnet build Crm.sln --configuration Release
 build:
   project: Crm.sln
   publish_wap: true
