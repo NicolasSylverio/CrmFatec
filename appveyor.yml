@@ -12,7 +12,7 @@ clone_folder: c:\projects\CrmFatec
 before_build:
 - cmd: >-
     dotnet restore
-    dotnet clean --source Crm.sln --configuration Release
+    dotnet clean --source c:\projects\CrmFatec\Crm.sln --configuration Release
     dotnet build --source Crm.sln --configuration Release
 build:
   project: Crm.sln
