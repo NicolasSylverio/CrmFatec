@@ -8,9 +8,9 @@ branches:
 image: Visual Studio 2017
 dotnet_csproj:
   patch: true
-  file: "**\*.csproj"
-  version: "{version}"
-  package_version: "{version}"
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
 before_build:
 - cmd: >-
     dotnet restore
@@ -21,4 +21,4 @@ test:
   assemblies:
     only:
       - Crm.Test.dll
-      - "**\*.Test.dll"
+      - '**\*.Test.dll'
