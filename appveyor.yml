@@ -1,36 +1,22 @@
 version: 1.0.{build}
-
+pull_requests:
+  do_not_increment_build_number: true
+branches:
+  only:
+    - master
+    - develop
+image: Visual Studio 2017
 dotnet_csproj:
   patch: true
   file: '**\*.csproj'
   version: '{version}'
   package_version: '{version}'
-  assembly_version: '{version}'
-  file_version: '{version}'
-  informational_version: '{version}'
-
-pull_requests:
-  do_not_increment_build_number: true
-
-branches:
-  only:
-    - master
-    - develop
-
-image: Visual Studio 2015
-
-platform: Any CPU
-
 before_build:
 - cmd: >-
     dotnet restore
     dotnet build
-
 build:
-  publish_wap: true
-  publish_aspnet_core: true
   verbosity: minimal
-
 test:
   assemblies:
     only:
