@@ -9,6 +9,10 @@ max_jobs: 1
 image: Visual Studio 2017
 platform: Any CPU
 clone_folder: c:\projects\CrmFatec
+before_build:
+- cmd: >-
+    dotnet restore
+    dotnet build
 build:
   project: Crm.sln
   publish_wap: true
