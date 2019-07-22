@@ -10,7 +10,7 @@ image: Visual Studio 2017
 platform: Any CPU
 clone_folder: c:\projects\CrmFatec
 before_build:
-- cmd: >- dotnet restore && dotnet clean -c Release && dotnet build -c Release;
+- cmd: >- dotnet restore && dotnet clean -c Release && dotnet build -c Release
 build:
   project: Crm.sln
   publish_wap: true
