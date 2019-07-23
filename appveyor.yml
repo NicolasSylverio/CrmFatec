@@ -19,4 +19,5 @@ build:
   verbosity: minimal
 test:
   assemblies:
-    only: 'c:\projects\CrmFatec\src\5-Tests\Crm.Test\bin\Release\netcoreapp2.2\Crm.Test.dll'
+    only: 
+    - :\projects\CrmFatec\src\5-Tests\Crm.Test\bin\Release\netcoreapp2.2\Crm.Test.dll
