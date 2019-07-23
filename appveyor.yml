@@ -20,4 +20,4 @@ build:
 test:
   assemblies:
     only: 
-    - :\projects\CrmFatec\src\5-Tests\Crm.Test\bin\Release\netcoreapp2.2\Crm.Test.dll
+    - 'c:\projects\CrmFatec\src\5-Tests\Crm.Test\bin\Any CPU\Release\netcoreapp2.2\Crm.Test.dll'
