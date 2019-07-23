@@ -19,4 +19,4 @@ build:
 test:
   assemblies:
     only:
-    - ../src/5-Tests/
+    - ..\src\5-Tests\
