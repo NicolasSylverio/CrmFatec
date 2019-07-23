@@ -18,5 +18,4 @@ build:
   verbosity: minimal
 test:
   assemblies:
-    only:
-    - ..\src\5-Tests\
+    only: '**\Crm.Test.dll'
