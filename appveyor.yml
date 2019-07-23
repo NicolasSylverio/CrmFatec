@@ -20,4 +20,4 @@ build:
 test:
   assemblies:
     only: 
-    - c:\projects\CrmFatec\src\5-Tests\Crm.Test.csproj
+    - src\5-Tests\Crm.Test.csproj
