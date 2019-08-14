@@ -40,5 +40,30 @@ namespace Crm.Mvc.Controllers
 
             return View();
         }
+
+        public IActionResult Edit()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IActionResult Remove()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IActionResult Alterar()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IActionResult Details()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IActionResult Delete()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

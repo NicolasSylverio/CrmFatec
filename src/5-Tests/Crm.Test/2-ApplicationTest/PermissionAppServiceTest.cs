@@ -20,7 +20,7 @@ namespace Crm.Test
         private readonly PermissionAppService _permissionAppServiceMock;
         private readonly IPermissionService _permissionServiceMock;
         private readonly Mock<IIdentityRepository> _identityRepositoryMock;
-        private readonly IMapper _mapperMock;
+        private readonly Mock<IMapper> _mapperMock;
 
         private Role _role;
 
@@ -30,8 +30,7 @@ namespace Crm.Test
         {
             _fixture = new Fixture();
 
-            var mapperMock = new Mock<IMapper>();
-            _mapperMock = mapperMock.Object;
+            _mapperMock = new Mock<IMapper>();
 
             ConfigureRoleList();
 
@@ -59,7 +58,7 @@ namespace Crm.Test
                 (
                     identityRepositoryMock.Object,
                     _permissionServiceMock,
-                    _mapperMock
+                    _mapperMock.Object
                 );
         }
 

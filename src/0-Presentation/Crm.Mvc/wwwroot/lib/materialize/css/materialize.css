@@ -3399,7 +3399,7 @@ nav ul a span.badge {
   margin-left: 4px;
   line-height: 22px;
   height: 22px;
-  -webkit-font-smoothing: auto;
+  -webkit-font-smoothing: inherit;
 }
 
 .collection-item span.badge {
@@ -7513,7 +7513,7 @@ input[type=range]::-ms-thumb {
   padding-left: 16px;
   height: 1.5rem;
   line-height: 1.5rem;
-  letter-spacing: .4;
+  letter-spacing: 0.4px;
   display: inline-block;
 }
 

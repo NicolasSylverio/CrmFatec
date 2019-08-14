@@ -65,5 +65,20 @@ namespace Crm.Mvc.Controllers
                 return View(usuarioViewModel);
             }
         }
+
+        public IActionResult Edit()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IActionResult Details()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IActionResult Delete()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

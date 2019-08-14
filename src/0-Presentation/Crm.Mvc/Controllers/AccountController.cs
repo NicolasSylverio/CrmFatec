@@ -238,7 +238,7 @@ namespace Crm.Mvc.Controllers
 
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackUrl = Url.ResetPasswordCallbackLink(user.Id, code, Request.Scheme);
-                await _emailSender.SendEmailAsync(forgetPassword.Email, "Resetar Senha",
+                await _emailSender.SendEmail(forgetPassword.Email, "Resetar Senha",
                     $"Por Favor Resete Sua Senha Clicando Aqui: <a href='{callbackUrl}'>link</a>");
                 return RedirectToAction(nameof(ForgotPasswordSucess));
             }

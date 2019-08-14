@@ -12,7 +12,7 @@
     <ul class="collapsible expandable">
         @if (Model != null)
         {
-            @foreach (var role in Model)
+            foreach (var role in Model)
             {
                 <li>
                     <div class="collapsible-header">
@@ -49,8 +49,8 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('.collapsible');
-        var options =
+        const elems = document.querySelectorAll('.collapsible');
+        const options =
         {
             inDuration: 100,
             outDuration: 100

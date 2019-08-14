@@ -198,5 +198,10 @@ namespace Crm.Mvc.Controllers
                 ModelState.AddModelError(string.Empty, error.Description);
             }
         }
+
+        public IActionResult SendVerificationEmail()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

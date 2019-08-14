@@ -1,11 +1,11 @@
 ﻿using Crm.Domain.Interfaces.Services;
-using Crm.Domain.Models.Services;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace Crm.Domain.Services
 {
+    /// <inheritdoc />
     public class EmailService : IEmailService
     {
         private const string Host = "smtp.mailtrap.io";
@@ -14,42 +14,56 @@ namespace Crm.Domain.Services
         private const int Port = 2525;
         private const string From = "nicolas@fatec.com";
 
-        public Task SendEmailAsync(string email, string subject, string message)
+        private readonly SmtpClient _smtpClient;
+
+        public EmailService(SmtpClient smtpClient = null)
         {
-            return SendEmailAsyncByProperties(email, subject, message);
+            if (smtpClient == null)
+            {
+                _smtpClient = new SmtpClient
+                {
+                    Host = Host,
+                    Credentials = new NetworkCredential(CredencialsUserName, CredentialsPassword),
+                    EnableSsl = true,
+                    Port = Port
+                };
+            }
+            else
+            {
+                _smtpClient = smtpClient;
+            }
         }
 
-        private static Task SendEmailAsyncByProperties(string email, string subject, string message)
+        public Task SendEmail(string email, string subject, string message)
         {
-            var client = new SmtpClient
-            {
-                Host = Host,
-                Credentials = new NetworkCredential(CredencialsUserName, CredentialsPassword),
-                EnableSsl = true,
-                Port = Port
-            };
+            return SendEmailByProperties(email, subject, message);
+        }
 
-            client.Send(From, email, subject, message);
+        public Task SendEmail(MailMessage mailMessage)
+        {
+            return SendEmailByProperties(mailMessage);
+        }
+
+        public Task SendEmailAsync(string email, string subject, string message, object userToken)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task SendEmailAsync(MailMessage emailMessage, object userToken)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private Task SendEmailByProperties(MailMessage emailMessage)
+        {
+            _smtpClient.Send(emailMessage);
 
             return Task.CompletedTask;
         }
 
-        public Task SendEmailAsync(MailMessage mailMessage)
+        private Task SendEmailByProperties(string email, string subject, string message)
         {
-            return SendEmailAsyncByProperties(mailMessage);
-        }
-
-        private static Task SendEmailAsyncByProperties(MailMessage emailMessage)
-        {
-            var client = new SmtpClient
-            {
-                Host = Host,
-                Credentials = new NetworkCredential(CredencialsUserName, CredentialsPassword),
-                EnableSsl = true,
-                Port = Port
-            };
-
-            client.Send(emailMessage);
+            _smtpClient.Send(From, email, subject, message);
 
             return Task.CompletedTask;
         }
