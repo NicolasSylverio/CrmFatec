@@ -1,0 +1,21 @@
+{
+  "short_name": "Mvc",
+  "name": "Crm Fatec",
+  "icons": [
+    {
+      "src": "/wwwroot/imagens/logoPadrao.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/wwwroot/imagens/logoPadrao.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/Account/Login",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/Account/",
+  "theme_color": "#ee6e73"
+}
